@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="fragments/adminModel">
+<head>
+        <title>导航菜单</title>
+    </head>
+    <body>
+        <div th:fragment="content" id="navigation-div">
+            <ul class="nav nav-list">
+<li id="menu_1" class="menu-level-1">
+		<a href="javascript:void(0)" class="dropdown-toggle">
+			<i></i>
+			<span class="menu-text">系统管理 </span>
+			<b class="arrow icon-angle-down"></b>
+		</a>
+
+		<ul class="submenu">
+
+				<li class="menu-level-1">
+					<a href="/studentSpecial/list">
+						<i class="fa fa-angle-right"></i> 学生管理 
+					</a>
+				</li>
+				<li class="menu-level-1">
+					<a href="/special/list">
+						<i class="fa fa-angle-right"></i> 专业管理 
+					</a>
+				</li>
+				<li class="menu-level-1">
+					<a href="/student/list">
+						<i class="fa fa-angle-right"></i> 学生管理 
+					</a>
+				</li>
+				<li class="menu-level-1">
+					<a href="/classroom/list">
+						<i class="fa fa-angle-right"></i> 班级管理 
+					</a>
+				</li>
+			
+		</ul>
+	</li>
+</ul>
+</div>
+    </body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html >
+<html lang="zh-CN"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      th:fragment="webModel">
+
+    <head th:fragment="head">
+        <title>后台首页</title>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <link rel="icon" type="image/x-icon" href="/favicon.png"/>
+        <!-- 默认360 兼容模式 -->
+        <meta name="renderer" content="webkit|ie-comp|ie-stand"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <script type="text/javascript" src="/basic/js-lib/jquery-1.12.3.min.js"></script>
+        <script type="text/javascript" src="/basic/bootstrap3/js/bootstrap.min.js"></script>
+        <link type="text/css" rel="stylesheet" href="/basic/bootstrap3/css/bootstrap.min.css"/>
+
+        <script type="text/javascript" src="/basic/admin/myself/public.js"></script>
+
+        <!-- Font Awesome-->
+        <link rel="stylesheet" href="/basic/font-awesome-4.7.0/css/font-awesome.min.css" />
+
+        <link rel="stylesheet" type="text/css" href="/web/main.css"/>
+        <script type="text/javascript">
+            $(function () {
+              $('[data-toggle="tooltip"]').tooltip()
+            })
+        </script>
+    </head>
+    <body>
+        <div class="model-head">
+            <div class="line"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5 left-nav">
+                        <ul class="top-nav-ul">
+                            <li>
+                                <div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        代码生成
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/">XML生成源代码</a></li>
+                                        <li><a href="/excel/index">Excel生成源代码</a></li>
+                                        <li><a href="/construction/index">在线创建项目源码</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li data-toggle="tooltip" data-placement="right" title="可生成Jar文件，但所需时间较长，处于测试阶段">
+                                <div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        在线编译（测试中）
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/?hasJar=1">编译XML项目</a></li>
+                                        <li><a href="/excel/index?hasJar=1">编译Excel项目</a></li>
+                                        <li><a href="/construction/index?hasJar=1">编译在线项目</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2"><img src="/web/logo.jpg" style="width:100%;margin-top:5px;text-align:center;"/></div>
+                    <div class="col-md-5 right-nav">
+                        <ul class="top-nav-ul">
+                            <li>
+                                <div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        模板下载
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a target="_blank" href="/templates/aujaker.xml">XML模板下载</a></li>
+                                        <li><a target="_blank" href="/templates/aujaker.xls">Excel模板下载</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <!--<li><a href="">版本信息</a></li>-->
+                            <li><a href="/comment/api">使用说明</a></li>
+                            <!--<li><a href="">视频教程</a></li>-->
+                            <li><a href="/comment"><i class="fa fa-commenting"></i> 对我点评</a></li>
+                            <!--<li><a href="/record">记录</a></li>-->
+                            <li><a href="/items">我的</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid" style="padding:0px; background:#f8f8f8; padding-bottom:60px;">
+            <div th:include="this :: content" ></div>
+        </div>
+
+        <nav class="navbar navbar-fixed-bottom web-model-bottom">
+            <p>开发人员：周勤生、陈绍友、孔浩、钟述林</p>
+        </nav>
+        <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?64715869f0a3a7161da725e219e78c7c";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
+
+        <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"0","bdPos":"right","bdTop":"100"},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+    </body>
+</html>
