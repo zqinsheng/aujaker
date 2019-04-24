@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<aujaker>
+	<maven groupId="org.zhouqinsheng.faceExam" artifactId="ynnz-faceExam"/>
+
+	<database type="mysql" name="ynnz-faceExam">
+		<username>face</username>
+		<password>666666</password>
+		<url>jdbc:mysql://localhost:3306/ynnz-faceExam</url>
+		<driver>com.mysql.jdbc.Driver</driver> 
+	</database>
+
+<!-- 数据库的信息
+ 	<database type="sqlite3" name="stu.db">
+		<url>jdbc:sqlite::resource:stu.db</url>
+		<driver>org.sqlite.JDBC</driver> 
+	</database>
+		 -->
+
+<!-- model中存储了所有的实体类，package必须写，说明数据库的包 -->
+	 <model>
+	 <class className="UserInfo" tableName="t_user_info" comment="用户信息表" author="zqs" classShowName="用户">
+		 	<properties>
+	 			<prop name="id" columnName="id" type="String" isLob="true" comment="id" isPk="true" pkType="1"/>
+	 			<prop name="username" type="String" comment="用户名" />
+	 			<prop name="password" type="String" comment="用户密码"/>
+	 			<prop name="userType" columnName="user_type" type="java.util.Date" comment="用户类型"/>
+	 		</properties>
+	 	</class>
+	 	
+	 	<class className="TeacherInfo" tableName="t_teacher_info" comment="监考老师" author="zqs" classShowName="教师">
+		 	<properties>
+	 			<prop name="id" columnName="id" type="String" isLob="true" comment="id" isPk="true" pkType="1"/>
+	 			<prop name="teacherName" columnName="teacher_name" type="String" comment="教师名称" />
+	 			<prop name="gender" columnName="gender" type="Integer" comment="教师性别:1男2女"/>
+	 		</properties>
+	 	</class>
+	 	
+	 	<class className="ExamRoom" tableName="t_exam_room" comment="考场信息" author="zqs" classShowName="考场">
+		 	<properties>
+	 			<prop name="id" columnName="id" type="String" isLob="true" comment="id" isPk="true" pkType="1"/>
+	 			<prop name="examName" columnName="exam_name" type="String" comment="考场名称" />
+	 			<prop name="examAddress" columnName="exam_address" type="String" comment="考试地点"/>
+				<prop name="personNum" columnName="person_num" type="java.util.Date" comment="考场人数"/>
+	 		</properties>
+	 	</class>
+	 	
+		<class className="ExamInfo" tableName="t_exam_info" comment="考试信息" author="zqs" classShowName="考试">
+		 	<properties>
+	 			<prop name="id" columnName="id" type="String" isLob="true" comment="id" isPk="true" pkType="1"/>
+				<prop name="roomId" columnName="room_id"  type="String" comment="考场id" />
+				<prop name="oneTeacherId" columnName="one_teacher_id" type="String" comment="监考教师id一" />
+				<prop name="twoTeacherId" columnName="two_teacher_id" type="String" comment="监考教师id二" />
+ 				<prop name="startDate" columnName="start_date" type="java.util.Date" comment="考试开始时间"/>
+				<prop name="endDate" columnName="end_date" type="java.util.Date" comment="考试结束时间"/>
+	 			<prop name="createDate" columnName="create_date" type="java.util.Date" comment="创建日期"/>
+	 		</properties>
+	 	</class>
+
+		<class className="ExamPerson" tableName="t_exam_person" comment="考生信息" author="zqs" classShowName="考生">
+		 	<properties>
+	 			<prop name="id" columnName="id" type="String" isLob="true" comment="id" 
+				isPk="true" pkType="1"/>
+				<prop name="personName" type="String" comment="姓名" />
+	 			<prop name="gender" type="String" comment="性别"/>
+				<prop name="idCard" columnName="id_card" type="String" comment="身份证号"/>
+				<prop name="phone" type="String" comment="电话号码"/>
+				<prop name="personPhoto" columnName="person_photo" type="String" comment="考生照片" />
+	 		</properties>
+	 	</class>
+	 </model>
+</aujaker>

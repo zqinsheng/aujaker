@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN"
+	  xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorator="fragments/adminModel">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<title>考试列表</title>
+		<script type="text/javascript">
+			$(function() {
+				$(".delete-obj-href").deleteFun();
+			});
+		</script>
+	</head>
+	<body>
+		<div th:fragment="content" th:remove="tag">
+
+		<div class="header lighter smaller blue">
+			<h3><span class="glyphicon glyphicon-th-list"></span>&nbsp;考试列表（<span th:text="${datas.getTotalElements()}"></span>）</h3>
+			<div th:replace="examInfo/nav :: content" th:remove="tag"></div>
+		</div>
+
+		<div class="table-responsive">
+
+			<table class="table table-hover">
+				<thead>
+					<tr>
+
+						<th>id</th>
+
+						<th>考场id</th>
+
+						<th>监考教师id一</th>
+
+						<th>监考教师id二</th>
+
+						<th>考试开始时间</th>
+
+						<th>考试结束时间</th>
+
+						<th>创建日期</th>
+
+						<th>操作</th>
+
+					</tr>
+				</thead>
+				<tr th:each="obj : ${datas}">
+
+					<td th:text="${obj.id}"></td>
+
+					<td th:text="${obj.roomId}"></td>
+
+					<td th:text="${obj.oneTeacherId}"></td>
+
+					<td th:text="${obj.twoTeacherId}"></td>
+
+					<td th:text="${obj.startDate}"></td>
+
+					<td th:text="${obj.endDate}"></td>
+
+					<td th:text="${obj.createDate}"></td>
+
+					<td>
+						<div class="action-buttons">
+							<a class="green auth1" sn="ExamInfoController.update" title="修改" th:href="'/examInfo/update/'+${obj.id}">
+								<i class="fa fa-pencil"></i>
+							</a>
+
+							<a class="delete-obj-href red auth1" sn="ExamInfoController.delete" th:title="'此操作不可逆，确定删除吗？'" th:href="'/examInfo/delete/'+${obj.id}">
+								<i class="fa fa-remove"></i>
+							</a>
+						</div>
+					</td>
+				</tr>
+
+			</table>
+			<div th:include="fragments/page :: pager" th:remove="tag"></div>
+		</div>
+		</div>
+	</body>
+</html>

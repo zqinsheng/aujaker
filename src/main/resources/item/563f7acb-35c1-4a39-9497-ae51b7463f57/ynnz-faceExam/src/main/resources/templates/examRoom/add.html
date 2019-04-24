@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN"
+	  xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorator="fragments/adminModel">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<title>更新考场</title>
+	</head>
+	<body>
+		<div th:fragment="content" th:remove="tag">
+
+			<div class="header lighter smaller blue">
+				<h3><i class="fa fa-plus"></i>&nbsp;更新考场</h3>
+				<div th:replace="examRoom/nav :: content" th:remove="tag"></div>
+			</div>
+
+			<form method="POST" th:object="${examRoom}" id="dataForm">
+
+				<div class="form-group form-group-lg">
+					<div class="input-group">
+						<div class="input-group-addon">考场名称：</div>
+						<input name="examName" type="text" class="form-control" th:value="${examRoom.examName}" placeholder="请输入考场名称" />
+					</div>
+				</div>
+
+				<div class="form-group form-group-lg">
+					<div class="input-group">
+						<div class="input-group-addon">考试地点：</div>
+						<input name="examAddress" type="text" class="form-control" th:value="${examRoom.examAddress}" placeholder="请输入考试地点" />
+					</div>
+				</div>
+
+				<input type="hidden" name="token" value="${session.token}"/>
+				<button type="submit" class="btn btn-primary">确定提交</button>
+			</form>
+
+		</div>
+	</body>
+</html>
